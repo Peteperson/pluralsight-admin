@@ -4,6 +4,6 @@ export const makeActionCreator = (type, ...argNames) => {
         argNames.forEach((arg, index) => {
             action[argNames[index]] = args[index]
         });
-        return action
+        return action;
     }
 };
