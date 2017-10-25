@@ -3,4 +3,4 @@ export default {
   courses:[],
   users:[],
   ajaxCallsInProgress: 0
-}
+};
