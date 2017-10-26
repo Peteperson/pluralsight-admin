@@ -11,19 +11,18 @@ class UsersPage extends React.Component {
     this.redirectToAddUserPage = this.redirectToAddUserPage.bind(this);
   }
 
-  userRow(user, index){
-    return (
-      <div key={index}>{user.title}</div>
-      );
+  componentDidMount(){
+    this.props.actions.loadUsers();
   }
 
   redirectToAddUserPage(){
     browserHistory.push('/user');
   }
 
-  componentDidMount(){
-    console.log(this.props.users.length);
-    this.props.actions.loadUsers();
+  userRow(user, index){
+    return (
+      <div key={index}>{user.title}</div>
+      );
   }
 
   render() {
