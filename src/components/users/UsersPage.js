@@ -21,18 +21,30 @@ class UsersPage extends React.Component {
     browserHistory.push('/user');
   }
 
+  componentDidMount(){
+    console.log(this.props.users.length);
+    this.props.actions.loadUsers();
+  }
+
   render() {
     const {users} = this.props;
 
     return (
       <div>
+      {users.length > 0 ? <div>
         <h1>Users</h1>
         <input type="submit"
               value="Add user"
               className="btn btn-primary"
               onClick={this.redirectToAddUserPage}/>
         {<UserList users={users} />}
+      </div> :
+          <div>
+              Please wait...
+          </div>
+      }
       </div>
+
     );
   }
 }
@@ -44,6 +56,7 @@ UsersPage.propTypes = {
 
 function mapStateToProps(state, ownProps){
   //state.users equals users in line 2 of ...reducers/index.js
+ 
   return {
     users: state.users
   };
