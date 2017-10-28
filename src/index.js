@@ -10,6 +10,9 @@ import {loadAuthors} from './actions/authorActions';
 import {loadUsers} from './actions/userActions';
 import './styles/styles.css';
 import '../node_modules/toastr/build/toastr.min.css';
+import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.js';
+import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+
 
 const store = configureStore();
 store.dispatch(loadCourses());

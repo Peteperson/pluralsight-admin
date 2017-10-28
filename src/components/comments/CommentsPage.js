@@ -11,7 +11,7 @@ class CommentsPage extends React.Component {
         this.redirectToAddCommentPage = this.redirectToAddCommentPage.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.actions.loadComments();
     }
 

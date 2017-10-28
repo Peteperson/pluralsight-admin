@@ -3,10 +3,12 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 const CommentList = ({ comments }) => {
     return (
-        <BootstrapTable data={comments}>
-            <TableHeaderColumn isKey dataField='id'>Comment ID</TableHeaderColumn>
-            <TableHeaderColumn dataField='name'>Name</TableHeaderColumn>
-            <TableHeaderColumn dataField='body'>Message</TableHeaderColumn>
+        <BootstrapTable data={comments} pagination 
+            headerStyle={{ color: '#cccccc' }} bodyStyle={{ color: '#aaaaaa' }}>
+            <TableHeaderColumn isKey dataField='id' hidden>Comment ID</TableHeaderColumn>
+            <TableHeaderColumn dataField='name' width={200} dataSort={true}>Name</TableHeaderColumn>
+            <TableHeaderColumn dataField='body' dataSort={true} 
+                tdStyle={{ whiteSpace: 'normal' }}>Message</TableHeaderColumn>
         </BootstrapTable>
     );
 };
