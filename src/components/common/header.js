@@ -15,9 +15,12 @@ const Header = ({ loading }) => {
         <LinkContainer to="/users">
           <NavItem eventKey={3}>Users</NavItem>
         </LinkContainer>
-        <NavDropdown eventKey={4} title="Help" id="basic-nav-dropdown">
+        <LinkContainer to="/comments">
+          <NavItem eventKey={4}>Comments</NavItem>
+        </LinkContainer>
+        <NavDropdown eventKey={5} title="Help" id="basic-nav-dropdown">
           <LinkContainer to="/about">
-            <MenuItem eventKey={4.1}>About</MenuItem>
+            <MenuItem eventKey={5.1}>About</MenuItem>
           </LinkContainer>
         </NavDropdown>
       </Nav>

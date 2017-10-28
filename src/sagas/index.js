@@ -1,1 +1,2 @@
-export {getUsersSaga} from './getUsersSaga';
+export { getUsersSaga } from './getUsersSaga';
+export { getCommentsSaga } from './getCommentsSaga';
