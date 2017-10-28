@@ -1,19 +1,27 @@
-import React, {PropTypes} from 'react';
-import {Link, IndexLink} from 'react-router';
-import LoadingDots from './LoadingDots';
+import React, { PropTypes } from 'react';
+import { Button, Nav, Navbar, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-const Header = ({loading}) => {
+const Header = ({ loading }) => {
   return (
-    <nav>
-      <IndexLink to="/" activeClassName="active">Home</IndexLink>
-      {" | "}
-      <Link to="/courses" activeClassName="active">Courses</Link>
-      {" | "}
-      <Link to="/users" activeClassName="active">Users</Link>
-      {" | "}
-      <Link to="/about" activeClassName="active">About</Link>
-      {loading && <LoadingDots interval={100} dots={20}/>}
-    </nav>
+    <Navbar>
+      <Nav>
+        <LinkContainer to="/home">
+          <NavItem eventKey={1}>Home</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/courses">
+          <NavItem eventKey={2}>Courses</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/users">
+          <NavItem eventKey={3}>Users</NavItem>
+        </LinkContainer>
+        <NavDropdown eventKey={4} title="Help" id="basic-nav-dropdown">
+          <LinkContainer to="/about">
+            <MenuItem eventKey={4.1}>About</MenuItem>
+          </LinkContainer>
+        </NavDropdown>
+      </Nav>
+    </Navbar>
   );
 };
 
