@@ -6,7 +6,8 @@ const CommentList = ({ comments }) => {
         <BootstrapTable data={comments} pagination 
             headerStyle={{ color: '#cccccc' }} bodyStyle={{ color: '#aaaaaa' }}>
             <TableHeaderColumn isKey dataField='id' hidden>Comment ID</TableHeaderColumn>
-            <TableHeaderColumn dataField='name' width={200} dataSort={true}>Name</TableHeaderColumn>
+            <TableHeaderColumn dataField='name' width='150' dataSort={true}
+                tdStyle={{ whiteSpace: 'normal' }}>Name</TableHeaderColumn>
             <TableHeaderColumn dataField='body' dataSort={true} 
                 tdStyle={{ whiteSpace: 'normal' }}>Message</TableHeaderColumn>
         </BootstrapTable>

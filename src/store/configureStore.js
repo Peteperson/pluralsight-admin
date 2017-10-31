@@ -15,7 +15,6 @@ export default function configureStore(initialState) {
     initialState,
     applyMiddleware(sagaMidleware, thunk, reduxImmutableStateInvariant())
   );
-  console.log("store created");
   initSagas(sagaMidleware);
   return store;
 }
