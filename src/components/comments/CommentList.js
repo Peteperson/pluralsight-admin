@@ -1,9 +1,17 @@
 import React, { PropTypes } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
+const selectRowProp = {
+    mode: 'checkbox',
+    bgColor: 'grey',
+    hideSelectColumn: true,
+    clickToSelect: true
+}; 
+
 const CommentList = ({ comments }) => {
     return (
-        <BootstrapTable data={comments} pagination 
+        <BootstrapTable data={comments} pagination search exportCSV deleteRow insertRow
+            selectRow={selectRowProp}
             headerStyle={{ color: '#cccccc' }} bodyStyle={{ color: '#aaaaaa' }}>
             <TableHeaderColumn isKey dataField="id" hidden>Comment ID</TableHeaderColumn>
             <TableHeaderColumn dataField="name" width="150" dataSort={"true"}
