@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as commentActions from '../../actions/commentActions';
 import CommentList from './CommentList';
 import { browserHistory } from 'react-router';
+import OverlayLoader from 'react-overlay-loading/lib/OverlayLoader'
 
 class CommentsPage extends React.Component {
     constructor(props, context) {
@@ -27,23 +28,24 @@ class CommentsPage extends React.Component {
 
     render() {
         const { comments } = this.props;
-
         return (
-            <div>
-                {comments && comments.length > 0 ? <div>
+            <OverlayLoader
+                color={'red'} // default is white
+                loader="ScaleLoader" // check below for more loaders
+                text="Loading... Please wait!"
+                active={!(comments && comments.length > 0)}
+                backgroundColor={'black'} // default is black
+                opacity=".8" // default is .9 
+            >
+                <div>
                     <h1>Comments</h1>
-                    <input type="submit"
+                    {/* <input type="submit"
                         value="Add comment"
                         className="btn btn-primary"
-                        onClick={this.redirectToAddCommentPage} />
+                        onClick={this.redirectToAddCommentPage} /> */}
                     {<CommentList comments={comments} />}
-                </div> :
-                    <div>
-                        Please wait...
-                    </div>
-                }
-            </div>
-
+                </div>
+            </OverlayLoader>
         );
     }
 }
