@@ -7,6 +7,8 @@ import CoursesPage from './components/course/CoursesPage';
 import UsersPage from './components/users/UsersPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import CommentsPage from './components/comments/CommentsPage';
+import LoginPage from './components/login/LoginPage';
+import LogoffPage from './components/login/LogoffPage';
 
 export default (
   <Route path="/" component={App}>
@@ -17,6 +19,8 @@ export default (
     <Route path="course" component={ManageCoursePage} />
     <Route path="course/:id" component={ManageCoursePage} />
     <Route path="comments" component={CommentsPage} />
+    <Route path="login" component={LoginPage} />
+    <Route path="logoff" component={LogoffPage} />
     <Route path="about" component={AboutPage} />
   </Route>
 );

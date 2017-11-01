@@ -3,5 +3,6 @@ export default {
   courses:[],
   users:[],
   comments:[],
-  ajaxCallsInProgress: 0
+  ajaxCallsInProgress: 0,
+  authenticated: false
 };

@@ -15,3 +15,15 @@ nav {
 .logoStyle{
   padding: 10px;
 }
+
+.noPadding {
+  padding: 0;
+}
+
+.topOffset{
+  margin-top: 60px;
+}
+
+label{
+  color: #AAAAAA;
+}
