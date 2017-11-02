@@ -4,7 +4,7 @@ import authors from './authorReducer';
 import users from './userReducer';
 import comments from './commentReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
-import authenticated from './loginReducer';
+import authenticationData from './loginReducer';
 
 const rootReducer = combineReducers({
     courses,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     users,
     comments,
     ajaxCallsInProgress,
-    authenticated
+    authenticationData
 });
 
 export default rootReducer;

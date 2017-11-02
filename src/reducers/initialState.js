@@ -4,5 +4,5 @@ export default {
   users:[],
   comments:[],
   ajaxCallsInProgress: 0,
-  authenticated: false
+  authenticationData: { authenticated: false }
 };

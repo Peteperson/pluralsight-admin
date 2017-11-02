@@ -4,8 +4,22 @@ import { AUTHENTICATE_BEGIN } from '../actions/actionTypes';
 import { authRecieved } from '../actions/loginActions';
 
 export function* loginSaga() {
-    const act = yield take(AUTHENTICATE_BEGIN);
-    const response = yield call(fetch, `http://jsonplaceholder.typicode.com/comments`);
-    const authData = yield apply(response, response.json);
-    yield put(authRecieved(true));
+    while (true) {
+        const act = yield take(AUTHENTICATE_BEGIN);
+        const requestParams = {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            body: `grant_type=password&username=${act.credentials.username}&password=${act.credentials.password}&client_id=browserId`
+        };
+        const response = yield call(fetch, 'http://localhost/brcperfmonapi/token', requestParams);
+        const authData = yield apply(response, response.json);
+        if(authData.error)
+            authData.authenticated = false;
+        else
+            authData.authenticated = true;
+        yield put(authRecieved(authData));
+    }
 }

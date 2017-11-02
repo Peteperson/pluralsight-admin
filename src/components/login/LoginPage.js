@@ -1,8 +1,12 @@
 import React, { PropTypes } from 'react';
-import { Form, FormGroup, Col, FormControl, Button, Checkbox, ControlLabel } from 'react-bootstrap';
+import {
+    Form, FormGroup, Col, FormControl, Button,
+    Checkbox, ControlLabel, ProgressBar
+} from 'react-bootstrap';
 import * as loginActions from '../../actions/loginActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router';
 
 class LoginPage extends React.Component {
     constructor(props, context) {
@@ -12,38 +16,51 @@ class LoginPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event, index, val) { 
-        this.setState({ 
-            [event.target.name]: event.target.value 
+    handleChange(event, index, val) {
+        this.setState({
+            [event.target.name]: event.target.value
         });
     }
 
     login(event) {
         event.preventDefault();
-        const cred = {username: this.state.username, password: this.state.password};
+        const cred = { username: this.state.username, password: this.state.password };
         this.props.actions.startAuth(cred);
     }
 
     render() {
+        if (this.props.authData.authenticated === true)
+            setTimeout(() => { browserHistory.push('/courses'); }, 1000);
         return (
-            <Form horizontal className="topOffset" onSubmit={this.login}>
-                <FormGroup controlId="formHorizontalEmail">
+            <Form horizontal onSubmit={this.login}
+                className="form-login topOffset" role="form" >
+                <FormGroup controlId="formLogin">
                     <Col componentClass={ControlLabel} sm={2}>Username</Col>
                     <Col sm={5}>
-                        <FormControl name="username" placeholder="username" value={this.state.username} onChange={this.handleChange} />
+                        <FormControl name="username" required autoFocus onChange={this.handleChange}
+                            className="form-control" value={this.state.username} />
                     </Col>
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalPassword">
                     <Col componentClass={ControlLabel} sm={2}>Password</Col>
                     <Col sm={5}>
-                        <FormControl name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+                        <FormControl name="password" type="password" value={this.state.password}
+                            onChange={this.handleChange} className="form-control" required />
                     </Col>
                 </FormGroup>
 
                 <FormGroup>
                     <Col smOffset={6} sm={5}>
-                        <Button bsStyle="primary" type="submit">Sign in</Button>
+                        <Button bsStyle="primary" type="submit">Log in</Button>
+                    </Col>
+                </FormGroup>
+
+                <FormGroup>
+                    <Col smOffset={2} sm={5}>
+                        {this.props.authData.error ? <div className="alert alert-danger">{this.props.authData.error_description}</div> : null}
+                        {this.props.authData.authenticated == null ?
+                            <ProgressBar active now={100} /> : null}
                     </Col>
                 </FormGroup>
             </Form>
@@ -52,12 +69,13 @@ class LoginPage extends React.Component {
 }
 
 LoginPage.propTypes = {
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    authData: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        authenticated: state.authenticated
+        authData: state.authenticationData
     };
 }
 

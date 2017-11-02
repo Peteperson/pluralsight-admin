@@ -22,7 +22,7 @@ App.propTypes = {
 function mapStateToProps(state, ownProps) {
   return {
     loading: state.ajaxCallsInProgress > 0,
-    authenticated: state.authenticated
+    authenticated: state.authenticationData.authenticated
   };
 }
 

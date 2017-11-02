@@ -28,7 +28,8 @@ const Header = ({ loading, authenticated }) => {
           <LinkContainer to="/comments" style={authenticated ? null : { display: 'none' }}>
             <NavItem eventKey={4}>Comments</NavItem>
           </LinkContainer>
-          <NavDropdown eventKey={5} title="Help" id="basic-nav-dropdown">
+          <NavDropdown eventKey={5} title="Help" id="basic-nav-dropdown"
+            style={authenticated ? null : { display: 'none' }}>
             <LinkContainer to="/about">
               <MenuItem eventKey={5.1}>About</MenuItem>
             </LinkContainer>
