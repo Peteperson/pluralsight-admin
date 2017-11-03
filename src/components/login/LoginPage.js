@@ -30,7 +30,7 @@ class LoginPage extends React.Component {
 
     render() {
         if (this.props.authData.authenticated === true)
-            setTimeout(() => { browserHistory.push('/courses'); }, 1000);
+            setTimeout(() => { browserHistory.push('/courses'); }, 100);
         return (
             <Form horizontal onSubmit={this.login}
                 className="form-login topOffset" role="form" >

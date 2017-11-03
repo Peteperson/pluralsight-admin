@@ -24,6 +24,7 @@ nav {
   margin-top: 60px;
 }
 
-label{
-  color: #AAAAAA;
+label, p, h1{
+  color: #AAAAAA !important;
 }
+
