@@ -8,11 +8,12 @@ const selectRowProp = {
     clickToSelect: true
 }; 
 
+const cellEditProp = { mode: 'click' }; 
+
 const CommentList = ({ comments }) => {
     return (
         <BootstrapTable data={comments} pagination search exportCSV deleteRow insertRow
-            selectRow={selectRowProp}
-            headerStyle={{ color: '#cccccc' }} bodyStyle={{ color: '#aaaaaa' }}>
+            selectRow={selectRowProp} cellEdit={cellEditProp}>
             <TableHeaderColumn isKey dataField="id" hidden>Comment ID</TableHeaderColumn>
             <TableHeaderColumn dataField="name" width="150" dataSort={"true"}
                 tdStyle={{ whiteSpace: 'normal' }}>Name</TableHeaderColumn>

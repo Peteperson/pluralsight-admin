@@ -33,6 +33,24 @@ const Header = ({ loading, authenticated }) => {
             <LinkContainer to="/about">
               <MenuItem eventKey={5.1}>About</MenuItem>
             </LinkContainer>
+            <LinkContainer to="/about">
+              <MenuItem eventKey={5.2}>qwe</MenuItem>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <MenuItem eventKey={5.3}>asd</MenuItem>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <MenuItem eventKey={5.4}>zxc</MenuItem>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <MenuItem divider />
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <MenuItem eventKey={5.5}>F you too</MenuItem>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <MenuItem eventKey={5.6}>sdf</MenuItem>
+            </LinkContainer>
           </NavDropdown>
         </Nav>
         <Nav pullRight>
